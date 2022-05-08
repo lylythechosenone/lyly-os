@@ -1,0 +1,10 @@
+#!/bin/zsh
+mkdir iso
+mkdir iso/boot
+cp limine/limine.sys limine/limine-cd.bin limine/limine-eltorito-efi.bin target/x86_64-unknown-none/debug/lyly-os limine.cfg iso/boot/
+xorriso -as mkisofs -b boot/limine-cd.bin \
+        -no-emul-boot -boot-load-size 4 -boot-info-table \
+        --efi-boot boot/limine-eltorito-efi.bin \
+        -efi-boot-part --efi-boot-image --protective-msdos-label \
+        iso -o lyly-os.iso
+limine/limine-install lyly-os.iso
