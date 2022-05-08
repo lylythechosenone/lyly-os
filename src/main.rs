@@ -11,6 +11,8 @@ fn panic(_: &core::panic::PanicInfo) -> ! {
 use core::ffi::c_char;
 use stivale_boot::v2::{StivaleHeader, StivaleStruct, StivaleTerminalHeaderTag};
 
+mod port;
+
 static STACK: [u8; 4096] = [0; 4096];
 
 #[used(linker)]
