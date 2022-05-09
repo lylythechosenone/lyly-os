@@ -31,7 +31,7 @@ impl PhysicalMemoryManager {
     pub fn is_free(&self, page: usize) -> bool {
         self.bitmap()[page / 8] & (1 << (page % 8)) == 0
     }
-    pub fn new(bitmap: *mut u8, size: usize, used: usize) -> Self {
+    pub unsafe fn new(bitmap: *mut u8, size: usize, used: usize) -> Self {
         PhysicalMemoryManager {
             bitmap: slice_from_raw_parts_mut(bitmap, size),
             used,
