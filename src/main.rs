@@ -8,7 +8,7 @@ fn panic(_: &core::panic::PanicInfo) -> ! {
     loop {}
 }
 
-use crate::memory::PhysicalMemoryManager;
+use crate::memory::physical::PhysicalMemoryManager;
 use core::ffi::c_char;
 use numtoa::NumToA;
 use stivale_boot::v2::{
